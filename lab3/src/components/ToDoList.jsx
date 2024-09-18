@@ -9,7 +9,7 @@ function ToDoList(){
 
     function addTask(text)
     {
-           const newTask = {
+        const newTask = {
             id: Math.random(),
             text
         };
