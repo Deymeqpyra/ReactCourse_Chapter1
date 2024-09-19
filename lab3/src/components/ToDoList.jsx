@@ -1,50 +1,60 @@
-import { useState } from "react";
-import ToDoItem from "./ToDoItem";
-function ToDoList(){
-    const[tasks, setTasks] = useState([]);
+import React, { useState } from 'react';
+import SearchInput from './SearchInput';
+import TableToDo from './TableToDo';
 
-    const[text, setText] = useState('');
-
+function ToDoList() {
+    const [tasks, setTasks] = useState([]);
+    const [text, setText] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    function addTask(text)
-    {
+    function addTask(text) {
+        if (!text.trim()) {
+            setErrorMessage("This field is required");
+            return;
+        }
+
+        setErrorMessage('');
+
         const newTask = {
-            id: Math.random(),
-            text
+            id: Date.now(),
+            text,
         };
+
         setTasks([...tasks, newTask]);
         setText('');
     }
-    function deleteTask(id)
-    {
+
+    function deleteTask(id) {
         setTasks(tasks.filter(task => task.id !== id));
     }
-   
-    const filteredTasks = tasks.filter(task => 
+
+    const filteredTasks = tasks.filter(task =>
         task.text.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
     return (
         <div className="todo-list">
-            <input 
-                placeholder="Пошук" 
-                value={searchQuery} 
-                onChange={e => setSearchQuery(e.target.value)} 
+            <SearchInput
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
             />
-            {filteredTasks.map(task => (
-                <ToDoItem
-                    key={task.id} 
-                    task={task}
-                    deleteTask={deleteTask}
-                />
-            ))}
+            <TableToDo 
+                tasks={filteredTasks} 
+                deleteTask={deleteTask} 
+            />
             <input
                 value={text}
-                onChange={e => setText(e.target.value)} 
+                onChange={e => setText(e.target.value)}
+                placeholder="Enter a task"
             />
             <button onClick={() => addTask(text)}>Add</button>
+
+            {errorMessage && (
+                <p style={{ color: 'red' }}>{errorMessage}</p>
+            )}
         </div>
-        )
+    );
 }
 
-export default ToDoList
+export default ToDoList;

@@ -3,7 +3,7 @@ function ToDoItem({ task, deleteTask }) {
  
  return (
  <div className="todo-item">
-<p>{task.text}</p>
+<p>{task.text}</p>  
 <button onClick={() => deleteTask(task.id)}>
  X
  </button>
