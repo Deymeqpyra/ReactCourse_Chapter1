@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchInput from './SearchInput';
 import TableToDo from './TableToDo';
+import PageTitle from './PageTitle';
 
 function ToDoList() {
     const [tasks, setTasks] = useState([]);
@@ -35,6 +36,7 @@ function ToDoList() {
 
     return (
         <div className="todo-list">
+            <PageTitle title="Dovhii To-Do List" />
             <SearchInput
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
