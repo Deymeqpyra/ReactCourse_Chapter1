@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PageTitle({ title }) {
+const PageTitle = ({ title }) => {
     return (
         <h1>{title}</h1>
     );

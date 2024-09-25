@@ -5,6 +5,7 @@ function TableToDo({ tasks, deleteTask }) {
         <table>
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Task</th>
                     <th>Actions</th>
                 </tr>
@@ -13,6 +14,7 @@ function TableToDo({ tasks, deleteTask }) {
                 {tasks.length > 0 ? (
                     tasks.map(task => (
                         <tr key={task.id}>
+                            <td>{task.id}</td>
                             <td>{task.text}</td>
                             <td>
                                 <button onClick={() => deleteTask(task.id)}>

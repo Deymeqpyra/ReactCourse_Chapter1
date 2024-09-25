@@ -1,29 +1,19 @@
 import React, { useState } from 'react';
 import SearchInput from './SearchInput';
 import TableToDo from './TableToDo';
-import PageTitle from './PageTitle';
+import AddToDoForm from './AddToDoForm';
 
-function ToDoList() {
+function ToDoContainer() {
     const [tasks, setTasks] = useState([]);
-    const [text, setText] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
 
     function addTask(text) {
-        if (!text.trim()) {
-            setErrorMessage("This field is required");
-            return;
-        }
-
-        setErrorMessage('');
-
         const newTask = {
             id: Date.now(),
             text,
         };
 
         setTasks([...tasks, newTask]);
-        setText('');
     }
 
     function deleteTask(id) {
@@ -35,28 +25,18 @@ function ToDoList() {
     );
 
     return (
-        <div className="todo-list">
-            <PageTitle title="Dovhii To-Do List" />
+        <div>
             <SearchInput
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
             />
-            <TableToDo 
-                tasks={filteredTasks} 
-                deleteTask={deleteTask} 
+            <TableToDo
+                tasks={filteredTasks}
+                deleteTask={deleteTask}
             />
-            <input
-                value={text}
-                onChange={e => setText(e.target.value)}
-                placeholder="Enter a task"
-            />
-            <button onClick={() => addTask(text)}>Add</button>
-
-            {errorMessage && (
-                <p style={{ color: 'red' }}>{errorMessage}</p>
-            )}
+            <AddToDoForm addTask={addTask} />
         </div>
     );
 }
 
-export default ToDoList;
+export default ToDoContainer;
