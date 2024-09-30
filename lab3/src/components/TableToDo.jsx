@@ -5,6 +5,7 @@ function TableToDo({ tasks, deleteTask }) {
         <table>
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Task</th>
                     <th>Actions</th>
                 </tr>

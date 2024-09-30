@@ -7,7 +7,8 @@ import './App.css'
 
 function App() {
   return (
-    <div >
+    <div>
+      <PageTitle title="Dovhii To-Do List" />
       <ToDoContainer/>
     </div>
   )

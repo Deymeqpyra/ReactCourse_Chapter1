@@ -26,7 +26,6 @@ function ToDoContainer() {
     setData((prevTasks) => [...prevTasks, newTask])
     setText('')
   }
-
   function deleteTask(id) {
     setData((prevTasks) => prevTasks.filter((task) => task.id !== id))
   }
