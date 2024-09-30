@@ -1,0 +1,170 @@
+.actionTodo{
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: gray;
+}
+.todo-list{
+    max-width: 100%;
+    min-width: 500px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: #2b2c37;
+}
+
+.loadingIcon,
+.loadingIcon div {
+  box-sizing: border-box;
+}
+.loadingIcon {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loadingIcon div {
+  position: absolute;
+  top: 33.33333px;
+  width: 13.33333px;
+  height: 13.33333px;
+  border-radius: 50%;
+  background: currentColor;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loadingIcon div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.loadingIcon div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.loadingIcon div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.loadingIcon div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+
+
+.addButton {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 10px;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
+}
+
+.addButton:disabled {
+  pointer-events: none;
+}
+
+.addButton:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.addButton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+  }
+  
+  .actionInput {
+    font-family: "Montserrat", sans-serif;
+    width: 50%;
+    height: 45px;
+    padding-left: 2.5rem;
+    box-shadow: 0 0 0 1.5px #2b2c37, 0 0 25px -17px #000;
+    border: 0;
+    border-radius: 12px;
+    background-color: #16171d;
+    outline: none;
+    color: #bdbecb;
+    transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: text;
+    z-index: 0;
+  }
+  
+  .actionInput::placeholder {
+    color: #bdbecb;
+  }
+  
+  .actionInput:hover {
+    box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
+  }
+  
+  .actionInput:active {
+    transform: scale(0.95);
+  }
+  
+  .actionInput:focus {
+    box-shadow: 0 0 0 2.5px #2f303d;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    fill: #bdbecb;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
