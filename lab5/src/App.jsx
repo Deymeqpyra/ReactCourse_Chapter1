@@ -8,6 +8,7 @@ import './App.css'
 function App() {
   return (
     <div >
+      <PageTitle title={"Dovhii ToDoList"}></PageTitle>
       <ToDoContainer/>
     </div>
   )

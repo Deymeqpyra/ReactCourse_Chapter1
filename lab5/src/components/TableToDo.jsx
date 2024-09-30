@@ -1,12 +1,13 @@
 import React from 'react';
+import "./TableToDo.css";
 
 function TableToDo({ tasks, deleteTask }) {
     return (
-        <table>
+        <table className='tableToDo'>
             <thead>
                 <tr>
                     <th>Task</th>
-                    <th>Actions</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>

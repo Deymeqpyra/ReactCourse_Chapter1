@@ -3,6 +3,7 @@ import SearchInput from './SearchInput'
 import TableToDo from './TableToDo'
 import LoadingToDoContainer from './LoadingToDoContainer'
 import useGetAllToDo from '../hooks/useGetAllToDo'
+import AddToDoItem from './AddToDoItem'
 import './ToDoContainer.css'
 
 function ToDoContainer() {
@@ -42,22 +43,18 @@ function ToDoContainer() {
 
   return (
     <div className="todo-list">
-     <div className='actionTodo'>
-       <input
-        className='actionInput'
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Enter a task"
-      />
-      <br/>
-      <button className='addButton' onClick={() => addTask(text)}>Add</button><br/>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      <br/>
-      <SearchInput  searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+    <LoadingToDoContainer isLoading={isLoading}>
+      <div className='actionTodo'>
+        <AddToDoItem
+          text={text}
+          setText={setText}
+          addTask={addTask}
+          errorMessage={errorMessage}
+        />
+        <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
-      <LoadingToDoContainer isLoading={isLoading}>
-        <TableToDo tasks={filteredTasks} deleteTask={deleteTask} />
-      </LoadingToDoContainer>
+      <TableToDo tasks={filteredTasks} deleteTask={deleteTask} />
+    </LoadingToDoContainer>
     </div>
   )
 }
