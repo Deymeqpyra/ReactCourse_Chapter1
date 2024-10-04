@@ -167,4 +167,18 @@
     pointer-events: none;
     z-index: 1;
   }
+  .saveEditBtn
+  {
+    background-color: #428800;
+    margin: 10px;
+  }
+  .cancelEditBtn
+  {
+    background-color: #6f0000;
+    margin: 10px;
+  }
+  .error-message
+  {
+    color: red;
+  }
   
